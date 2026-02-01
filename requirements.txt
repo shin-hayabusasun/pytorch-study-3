@@ -1,0 +1,18 @@
+# 基礎ライブラリ
+torch
+torchvision
+torchaudio
+
+# データセット・分析関連
+datasets
+pandas
+numpy
+scikit-learn
+
+# 画像処理・ネットワーク関連
+timm
+Pillow
+requests
+
+# その他（必要に応じて）
+tqdm

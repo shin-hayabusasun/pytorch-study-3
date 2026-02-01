@@ -1,0 +1,20 @@
+version: "3.9"
+
+services:
+  pytorch:
+    build: .
+    container_name: pytorch_gpu_vit
+    volumes:             # ← ホストとコンテナの共有
+      - ./checkpoints:/workspace/checkpoints #model保存するためのディレクトリマウント
+      - .:/workspace     # プロジェクト全体マウント
+    stdin_open: true
+    tty: true
+    runtime: nvidia      # GPU対応
+
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
